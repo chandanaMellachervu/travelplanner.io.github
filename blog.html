@@ -1,0 +1,225 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <title>Tourify</title>
+    <meta name="description" content="">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <!-- font awesome cdn -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.3/css/all.min.css" integrity="sha512-iBBXm8fW90+nuLcSKlbmrPcLa0OT92xO1BIsZ+ywDWZCvqsWgccV3gFoRBv0z+8dLJgyAHIhR35VZc2oM/gI1w==" crossorigin="anonymous" referrerpolicy="no-referrer" />
+</head>
+<body style="margin: 0; padding: 0; font-family: Arial, sans-serif; background-color: #f8f8f8; color: #333; line-height: 1.6;">
+
+<!-- navbar  -->
+<nav class="navbar" style="background-color: #333; color: #fff; padding: 10px 0;">
+    <div class="container flex">
+        <a href="index.html" class="site-brand" style="color: #fff; text-decoration: none;">
+            Tourify<span style="color: #ffc107;"></span>
+        </a>
+
+        <button type="button" id="navbar-show-btn" class="flex" style="background-color: transparent; border: none; cursor: pointer; color: #fff;">
+            <i class="fas fa-bars"></i>
+        </button>
+        <div id="navbar-collapse" style="display: none;">
+            <button type="button" id="navbar-close-btn" class="flex" style="background-color: transparent; border: none; cursor: pointer; color: #fff;">
+                <i class="fas fa-times"></i>
+            </button>
+            <ul class="navbar-nav" style="list-style-type: none; padding: 0; margin: 0;">
+                <li class="nav-item">
+                    <a href="index.html" class="nav-link" style="color: #fff; text-decoration: none;">Home</a>
+                </li>
+                <li class="nav-item">
+                    <a href="gallery.html" class="nav-link" style="color: #fff; text-decoration: none;">Gallery</a>
+                </li>
+                <li class="nav-item">
+                    <a href="blog.html" class="nav-link" style="color: #fff; text-decoration: none;">Blog</a>
+                </li>
+                <li class="nav-item">
+                    <a href="about.html" class="nav-link" style="color: #fff; text-decoration: none;">About</a>
+                </li>
+                <li class="nav-item">
+                    <a href="contact.html" class="nav-link" style="color: #fff; text-decoration: none;">Contact</a>
+                </li>
+            </ul>
+        </div>
+    </div>
+</nav>
+<!-- end of navbar  -->
+
+<!-- header -->
+<header class="flex header-sm" style="background-color: #ffc107; padding: 20px 0; text-align: center;">
+    <div class="container">
+        <div class="header-title">
+            <h1 style="margin: 0; font-size: 2rem;">Blog</h1>
+            <p style="font-size: 1rem;">Explore our latest blog posts for valuable insights and travel tips.</p>
+        </div>
+    </div>
+</header>
+<!-- header -->
+
+<!-- blog section -->
+<section id="blog" class="py-4" style="padding: 20px;">
+    <div class="container">
+        <div class="title-wrap">
+            <h2 class="sm-title" style="font-size: 1.5rem;">Read these blogs for information</h2>
+            <h3 class="lg-title" style="font-size: 2rem;">Recent Blogs</h3>
+        </div>
+
+        <div class="blog-row" style="display: flex; flex-wrap: wrap;">
+            <!-- Sample blog item -->
+            <div class="blog-item" style="flex: 0 0 calc(33.33% - 20px); margin: 10px;">
+                <img src="https://cdn.pixabay.com/photo/2016/02/13/12/26/aurora-1197753_1280.jpg" alt="Blog Image" style="width: 100%; border-radius: 5px;">
+                <h3 class="blog-title" style="font-size: 1.2rem; margin: 10px 0;">Ethereal Explorations</h3>
+                <p class="blog-description" style="font-size: 1rem;">Discover the mesmerizing beauty of the northern lights and how to witness this natural wonder.</p>
+                <a href="#" class="btn" style="padding: 10px 20px; background-color: #ffc107; color: #333; text-decoration: none; border-radius: 5px; display: inline-block; margin-top: 10px;">Discover More</a>
+            </div>
+            <!-- Sample blog item -->
+            <div class="blog-item" style="flex: 0 0 calc(33.33% - 20px); margin: 10px;">
+                <img src="https://i0.wp.com/mindfulwonderer.com/wp-content/uploads/2021/01/best-travel-blogs-header.jpg?fit=1000%2C590&ssl=1" alt="Blog Image" style="width: 100%; border-radius: 5px;">
+                <h3 class="blog-title" style="font-size: 1.2rem; margin: 10px 0;">Wanderlust Chronicles</h3>
+                <p class="blog-description" style="font-size: 1rem;">Explore the top travel blogs that will inspire your next adventure and ignite your wanderlust.</p>
+                <a href="#" class="btn" style="padding: 10px 20px; background-color: #ffc107; color: #333; text-decoration: none; border-radius: 5px; display: inline-block; margin-top: 10px;">Read More</a>
+            </div>
+            <!-- Sample blog item -->
+            <div class="blog-item" style="flex: 0 0 calc(33.33% - 20px); margin: 10px;">
+                <img src="https://static.vecteezy.com/system/resources/previews/026/542/204/non_2x/landscape-natural-beautiful-mountains-and-blue-sky-panorama-photo.jpg" alt="Blog Image" style="width: 100%; border-radius: 5px;">
+                <h3 class="blog-title" style="font-size: 1.2rem; margin: 10px 0;">Majestic Peaks</h3>
+                <p class="blog-description" style="font-size: 1rem;">Uncover the breathtaking vistas of mountain landscapes and immerse yourself in nature's grandeur.</p>
+                <a href="#" class="btn" style="padding: 10px 20px; background-color: #ffc107; color: #333; text-decoration: none; border-radius: 5px; display: inline-block; margin-top: 10px;">Read More</a>
+            </div>
+            <!-- Sample blog item -->
+            <div class="blog-item" style="flex: 0 0 calc(33.33% - 20px); margin: 10px;">
+                <img src="https://cdn.pixabay.com/photo/2017/08/03/14/36/winter-2576611_640.jpg" alt="Blog Image" style="width: 100%; border-radius: 5px;">
+                <h3 class="blog-title" style="font-size: 1.2rem; margin: 10px 0;">Snowy Serenity</h3>
+                <p class="blog-description" style="font-size: 1rem;">Experience the magic of winter wonderlands and discover the best destinations for snowy adventures.</p>
+                <a href="#" class="btn" style="padding: 10px 20px; background-color: #ffc107; color: #333; text-decoration: none; border-radius: 5px; display: inline-block; margin-top: 10px;">Read More</a>
+            </div>
+            <!-- Sample blog item -->
+            <div class="blog-item" style="flex: 0 0 calc(33.33% - 20px); margin: 10px;">
+                <img src="https://www.outlooktravelmag.com/media/vietnam-1-1611926800.profileImage.2x-jpg.webp" alt="Blog Image" style="width: 100%; border-radius: 5px;">
+                <h3 class="blog-title" style="font-size: 1.2rem; margin: 10px 0;">Vietnamese Vistas</h3>
+                <p class="blog-description" style="font-size: 1rem;">Embark on a virtual journey through the vibrant culture and picturesque landscapes of Vietnam.</p>
+                <a href="#" class="btn" style="padding: 10px 20px; background-color: #ffc107; color: #333; text-decoration: none; border-radius: 5px; display: inline-block; margin-top: 10px;">Read More</a>
+            </div>
+            <!-- Sample blog item -->
+            <div class="blog-item" style="flex: 0 0 calc(33.33% - 20px); margin: 10px;">
+                <img src="https://i.insider.com/5c758964eb3ce8071352d754?width=600&format=jpeg&auto=webp" alt="Blog Image" style="width: 100%; border-radius: 5px;">
+                <h3 class="blog-title" style="font-size: 1.2rem; margin: 10px 0;">Tranquil Retreats</h3>
+                <p class="blog-description" style="font-size: 1rem;">Indulge in the ultimate relaxation with a guide to the world's most serene and tranquil spa retreats.</p>
+                <a href="#" class="btn" style="padding: 10px 20px; background-color: #ffc107; color: #333; text-decoration: none; border-radius: 5px; display: inline-block; margin-top: 10px;">Read More</a>
+            </div>
+        </div>
+    </div>
+</section>
+<!-- end of blog section -->
+
+
+<!-- footer -->
+<footer class="py-4" style="background-color: #333; color: #fff; padding: 20px 0;">
+    <div class="container footer-row" style="display: flex; flex-wrap: wrap;">
+
+        <div class="footer-item" style="flex: 1; margin: 0 10px;">
+            <a href="index.html" class="site-brand" style="color: #fff; text-decoration: none;">
+                Tourify<span style="color: #ffc107;">Boss</span>
+            </a>
+            <p class="text" style="font-size: 0.9rem;">Discover the world with Tourify. Plan your next adventure with us!</p>
+        </div>
+
+        <div class="footer-item" style="flex: 1; margin: 0 10px;">
+            <h2 style="font-size: 1.2rem;">Follow us on: </h2>
+            <ul class="social-links" style="list-style-type: none; padding: 0;">
+                <li style="display: inline-block; margin-right: 10px;">
+                    <a href="#" style="color: #fff; text-decoration: none;">
+                        <i class="fab fa-facebook-f"></i>
+                    </a>
+                </li>
+                <li style="display: inline-block; margin-right: 10px;">
+                    <a href="#" style="color: #fff; text-decoration: none;">
+                        <i class="fab fa-instagram"></i>
+                    </a>
+                </li>
+                <li style="display: inline-block; margin-right: 10px;">
+                    <a href="#" style="color: #fff; text-decoration: none;">
+                        <i class="fab fa-twitter"></i>
+                    </a>
+                </li>
+                <li style="display: inline-block; margin-right: 10px;">
+                    <a href="#" style="color: #fff; text-decoration: none;">
+                        <i class="fab fa-pinterest"></i>
+                    </a>
+                </li>
+                <li style="display: inline-block; margin-right: 10px;">
+                    <a href="#" style="color: #fff; text-decoration: none;">
+                        <i class="fab fa-google-plus"></i>
+                    </a>
+                </li>
+            </ul>
+        </div>
+
+        <div class="footer-item" style="flex: 1; margin: 0 10px;">
+            <h2 style="font-size: 1.2rem;">Popular Places:</h2>
+            <ul style="list-style-type: none; padding: 0;">
+                <li><a href="#" style="color: #fff; text-decoration: none;">Thailand</a></li>
+                <li><a href="#" style="color: #fff; text-decoration: none;">Australia</a></li>
+                <li><a href="#" style="color: #fff; text-decoration: none;">Maldives</a></li>
+                <li><a href="#" style="color: #fff; text-decoration: none;">Switzerland</a></li>
+                <li><a href="#" style="color: #fff; text-decoration: none;">Germany</a></li>
+            </ul>
+        </div>
+
+        <div class="subscribe-form footer-item" style="flex: 1; margin: 0 10px;">
+            <h2 style="font-size: 1.2rem;">Subscribe for Newsletter!</h2>
+            <form class="flex" style="margin-top: 10px;">
+                <input type="email" placeholder="Enter Email" class="form-control" style="padding: 10px; border: 1px solid #ccc; border-radius: 5px; margin-right: 10px;">
+                <input type="submit" class="btn" value="Subscribe" style="padding: 10px 20px; background-color: #ffc107; color: #333; border: none; cursor: pointer; border-radius: 5px;">
+            </form>
+        </div>
+    </div>
+</footer>
+<!-- end of footer -->
+
+<!-- js -->
+<script>
+    const navbarDiv = document.querySelector('.navbar');
+    window.addEventListener('scroll', () => {
+        if(document.body.scrollTop > 40 || document.documentElement.scrollTop > 40){
+            navbarDiv.classList.add('navbar-cng');
+        } else {
+            navbarDiv.classList.remove('navbar-cng');
+        }
+    });
+
+
+    const navbarCollapseDiv = document.getElementById('navbar-collapse');
+    const navbarShowBtn = document.getElementById('navbar-show-btn');
+    const navbarCloseBtn = document.getElementById('navbar-close-btn');
+    // show navbar
+    navbarShowBtn.addEventListener('click', () => {
+        navbarCollapseDiv.classList.add('navbar-collapse-rmw');
+    });
+
+    // hide side bar
+    navbarCloseBtn.addEventListener('click', () => {
+        navbarCollapseDiv.classList.remove('navbar-collapse-rmw');
+    });
+
+    document.addEventListener('click', (e) => {
+        if(e.target.id != "navbar-collapse" && e.target.id != "navbar-show-btn" && e.target.parentElement.id != "navbar-show-btn"){
+            navbarCollapseDiv.classList.remove('navbar-collapse-rmw');
+        }
+    });
+
+    // stop transition and animation during window resizing
+    let resizeTimer;
+    window.addEventListener('resize', () => {
+        document.body.classList.add("resize-animation-stopper");
+        clearTimeout(resizeTimer);
+        resizeTimer = setTimeout(() => {
+            document.body.classList.remove("resize-animation-stopper");
+        }, 400);
+    });
+</script>
+<!-- end of js -->
+</body>
+</html>

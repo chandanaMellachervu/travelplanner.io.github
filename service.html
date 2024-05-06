@@ -1,0 +1,202 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Ride Calculator</title>
+  <style>
+    body {
+      font-family: Arial, sans-serif;
+      margin: 0;
+      padding: 0;
+      background-color: #f0f0f0; /* Light gray background */
+      background-image: url("https://www.onetravel.com/going-places/wp-content/uploads/2019/10/Modes-of-transport-planes.jpg");
+      background-size: cover;
+      background-repeat: no-repeat;
+      background-attachment: fixed;
+    }
+
+    header, footer {
+      background-color: rgba(0, 0, 0, 0.7); /* Semi-transparent black background */
+      color: #fff;
+      padding: 20px;
+      text-align: center;
+    }
+
+    header h1 {
+      margin: 0;
+    }
+
+    main {
+      padding: 20px;
+      text-align: center;
+    }
+
+    section {
+      margin-bottom: 20px;
+    }
+
+    #ride-options {
+      display: flex;
+      justify-content: center;
+      flex-wrap: wrap;
+    }
+
+    .ride-option {
+      margin: 10px;
+      cursor: pointer;
+      border-radius: 10px; /* Rounded corners */
+      overflow: hidden;
+      box-shadow: 0 0 10px rgba(0, 0, 0, 0.2); /* Shadow effect */
+      transition: transform 0.3s ease; /* Smooth transition */
+    }
+
+    .ride-option:hover {
+      transform: scale(1.05); /* Enlarge on hover */
+    }
+
+    .ride-option img {
+      width: 200px; /* Adjusted image size */
+      height: 200px; /* Adjusted image size */
+      object-fit: cover;
+    }
+
+    .ride-option p {
+      background-color: rgba(0, 0, 0, 0.7); /* Semi-transparent black background for text */
+      color: #fff;
+      margin: 0;
+      padding: 10px;
+    }
+
+    #ride-details {
+      display: none;
+      background-color: rgba(255, 255, 255, 0.7); /* Semi-transparent white background */
+      padding: 20px;
+      border-radius: 10px;
+      box-shadow: 0 0 10px rgba(0, 0, 0, 0.2); /* Shadow effect */
+    }
+
+    #ride-details-content {
+      text-align: left;
+    }
+
+    footer p {
+      margin: 0;
+    }
+
+    input {
+      padding: 10px;
+      margin-top: 10px;
+      border: none;
+      border-radius: 5px;
+      font-size: 16px;
+      width: 100px;
+      text-align: center;
+    }
+
+    input:focus {
+      outline: none;
+    }
+  </style>
+</head>
+<body>
+  <header>
+    <h1>Ride Calculator</h1>
+  </header>
+
+  <main>
+    <section id="calculator-form">
+      <h2>Choose Your Ride</h2>
+      <div id="ride-options">
+        <div class="ride-option" data-type="cab">
+          <img src="https://t3.ftcdn.net/jpg/04/32/29/64/240_F_432296462_0rRBBm2f4u22BFa7tvls5d04AApxL8IC.jpg" alt="Cab">
+          <p>Cab</p>
+          <input type="number" placeholder="Distance (km)" id="cab-distance">
+        </div>
+        <div class="ride-option" data-type="auto">
+          <img src="https://t3.ftcdn.net/jpg/05/21/76/46/240_F_521764629_5piaSBZo492VPJqxvFeEpZ6r6CgI0Xtf.jpg" alt="Auto">
+          <p>Auto</p>
+          <input type="number" placeholder="Distance (km)" id="auto-distance">
+        </div>
+        <div class="ride-option" data-type="bike">
+          <img src="https://bd.gaadicdn.com/processedimages/indian/scout-bobber/source/scout-bobber62eb4a0d92990.jpg?tr=w-880,h-495" alt="Bike">
+          <p>Bike</p>
+          <input type="number" placeholder="Distance (km)" id="bike-distance">
+        </div>
+        <div class="ride-option" data-type="bus">
+          <img src="https://assets.volvo.com/is/image/VolvoInformationTechnologyAB/blue-bus?qlt=82&wid=768&ts=1660212095501&dpr=off&fit=constrain" alt="Bus">
+          <p>Bus</p>
+          <input type="number" placeholder="Distance (km)" id="bus-distance">
+        </div>
+      </div>
+    </section>
+
+    <section id="ride-details">
+      <h2>Ride Charges</h2>
+      <div id="ride-details-content"></div>
+    </section>
+  </main>
+
+  <footer>
+    <p>&copy; 2024 Ride Calculator</p>
+  </footer>
+
+  <script>
+    const rideOptions = document.querySelectorAll('.ride-option');
+
+    rideOptions.forEach(option => {
+      option.addEventListener('click', () => {
+        rideOptions.forEach(opt => opt.classList.remove('selected'));
+        option.classList.add('selected');
+      });
+    });
+
+    let typingTimer;
+    const doneTypingInterval = 500; // in milliseconds
+
+    function displayRideDetails(rideType, distance, totalCharge) {
+      const rideDetailsContent = document.getElementById('ride-details-content');
+      rideDetailsContent.innerHTML = `
+        <p>Selected Ride: ${rideType}</p>
+        <p>Distance: ${distance} km</p>
+        <p>Total Charge: $${totalCharge.toFixed(2)}</p>
+      `;
+      document.getElementById('ride-details').style.display = 'block';
+    }
+
+    function calculateCharge(rideType, distance) {
+      const chargePerKm = getChargePerKm(rideType);
+      const totalCharge = distance * chargePerKm;
+      displayRideDetails(rideType, distance, totalCharge);
+    }
+
+    function getChargePerKm(rideType) {
+      switch (rideType) {
+        case 'cab':
+          return 15; // $15 per km for Cab
+        case 'auto':
+          return 10; // $10 per km for Auto
+        case 'bike':
+          return 5; // $5 per km for Bike
+        case 'bus':
+          return 3; // $3 per km for Bus
+        default:
+          return 0;
+      }
+    }
+
+    document.querySelectorAll('input').forEach(input => {
+      input.addEventListener('input', () => {
+        clearTimeout(typingTimer);
+        typingTimer = setTimeout(() => {
+          const rideType = input.parentElement.getAttribute('data-type');
+          const distance = parseFloat(input.value);
+          if (!isNaN(distance)) {
+            calculateCharge(rideType, distance);
+          }
+        }, doneTypingInterval);
+      });
+    });
+  </script>
+</body>
+</html>

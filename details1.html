@@ -1,0 +1,464 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Place Details</title>
+    <style>
+        .place-details {
+            display: flex;
+            justify-content: space-between;
+            flex-wrap: wrap;
+        }
+        .place-details .place-info {
+            width: 30%; /* Adjust as needed */
+            margin-bottom: 20px; /* Add some space between each place */
+            position: relative; /* Needed for absolute positioning of the overlay */
+        }
+        .place-details img {
+            max-width: 100%;
+            transition: transform 0.3s ease-in-out; /* Transition effect for smooth pop-up */
+        }
+        .place-details .place-info:hover img {
+            transform: scale(1.1); /* Scale up the image on hover */
+            z-index: 1; /* Ensure the image is above other elements */
+        }
+        .place-details .place-info .image-overlay {
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            bottom: 0;
+            color: white;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            opacity: 0; /* Initially invisible */
+            transition: opacity 0.3s ease-in-out; /* Transition for fade-in effect */
+        }
+        .place-details .place-info:hover .image-overlay {
+            opacity: 1; /* Make overlay visible on hover */
+        }
+    </style>
+</head>
+<body>
+    <h1>Place Details</h1>
+    <div id="place-details"></div>
+
+    <script>
+        window.onload = function() {
+            // Parse the query parameter to get the selected place
+            const urlParams = new URLSearchParams(window.location.search);
+            const place = urlParams.get('place');
+
+            // Display details based on the selected place
+            let details = '';
+            switch (place) {
+                case 'Goa':
+                    details = `
+                        <h2>GOA</h2>
+                        <p>Goa is a state in western India with coastlines stretching along the Arabian Sea. Goa is also known for its beaches, ranging from popular stretches at Baga and Palolem to those in laid-back fishing villages such as Agonda.</p>
+                        <h3>Places to visit in Goa:</h3>
+                        <div class="place-details">
+                            <div class="place-info">
+                                <li>Baga Beach</li>
+                                <div class="image-overlay">Baga Beach</div>
+                                <img src="https://static.toiimg.com/photo/59486326.cms" alt="baga beach" height="400" width="400">
+                            </div>
+                            <div class="place-info">
+                                <li>Calangute Beach</li>
+                                <div class="image-overlay">Calangute Beach</div>
+                                <img src="https://media1.thrillophilia.com/filestore/b8iqw6n62s37df5vqj13dpxr17cg_shutterstock_1850377780.jpg?w=400&dpr=2" alt="calangute beach" height="400" width="400">
+                            </div>
+                            <div class="place-info">
+                                <li>St.Francis Xavier Church</li>
+                                <div class="image-overlay">t.Francis Xavier Church</div>
+                                <img src="https://diarchy.in/wp-content/uploads/2017/12/St.Francis-chruch-_-coimbatore-2-550x550.jpg" alt="church" height="400" width="400">
+                            </div>
+                            <div class="place-info">
+                                <li>Old Goa</li>
+                                <div class="image-overlay">Old Goa</div>
+                                <img src="https://images.travelandleisureasia.com/wp-content/uploads/sites/5/2023/12/14115543/fontainhas.jpeg" alt="old goa" height="400" width="400">
+                            </div>
+                        </div>
+                        <main>
+        <section class="itinerary">
+            <h2>Goa Itinerary</h2>
+            <ul>
+                <li>Day 1: Arrival in Goa and relax at the beach</li>
+                <li>Day 2: Explore Old Goa and visit historical churches</li>
+                <li>Day 3: Water sports activities and beach hopping</li>
+                <li>Day 4: Discover local markets and enjoy Goan cuisine</li>
+                <li>Day 5: Departure from Goa</li>
+            </ul>
+        </section>
+    </main>
+                    `;
+                    break;
+                // Add cases for other places
+                case 'Taj Mahal':
+                    details = `
+                        <h2>TAJ MAHAL</h2>
+                        <p>The Taj Mahal is an ivory-white marble mausoleum on the south bank of the Yamuna river in the Indian city of Agra. The imperial court documenting Shah Jahan's grief after the death of Mumtaz Mahal illustrates the love story held as the inspiration for the Taj Mahal.</p>
+                        <h3>Places to visit near Taj Mahal:</h3>
+                        <div class="place-details">
+                           <div class="place-info">
+                            <li>Agra Fort</li>
+                            <div class="image-overlay">Agra Fort</div>
+                            <img src="https://www.tajmahal.gov.in/images/gallery/agra-fort/1.jpg" alt="agra fort" height="400" width="400">
+                            </div>
+                            <div class="place-info">
+                            <li>Fatehpur Sikri</li>
+                            <div class="image-overlay">Fatehpur Sikri</div>
+                            <img src="https://upload.wikimedia.org/wikipedia/commons/thumb/b/b5/Fatehput_Sikiri_Buland_Darwaza_gate_2010.jpg/800px-Fatehput_Sikiri_Buland_Darwaza_gate_2010.jpg" alt=fatehpur sikri" height="400" width="400">
+                            </div>
+                            <div class="place-info">
+                            <li>Mehtab Bagh</li>
+                            <div class="image-overlay">Mehtab Bagh</div>
+                            <img src="https://www.trawell.in/admin/images/upload/763938450Agra_Mehtab_Bagh_Main.jpg" alt="mehtab bagh" height="400" width="400">
+                            </div>
+                            <!-- Add more places to visit near Taj Mahal -->
+                        </div>
+                        </div>
+                        <main>
+        <section class="itinerary">
+            <h2>Taj Mahal Itinerary</h2>
+            <ul>
+                <li>Day 1: Arrival in Agra and visit the Taj Mahal</li>
+                <li>Day 2: Explore Agra Fort and local markets</li>
+                <li>Day 3: Visit Fatehpur Sikri and other historical sites</li>
+                <li>Day 4: Relaxation day or optional day trip</li>
+                <li>Day 5: Departure from Agra</li>
+            </ul>
+        </section>
+    </main>
+                    `;
+                    break;
+                case 'Tirupathi':
+                    details = `
+                        <h2>TIRUPATI</h2>
+                        <p>Tirupati is famous for the Sri Venkateswara Temple, one of the most visited religious sites in the world.</p>
+                        <h3>Places to visit in Tirupati:</h3>
+                        <div class="place-details">
+                           <div class="place-info">
+                            <li>Sri Venkateswara Temple</li>
+                            <div class="image-overlay">Sri Venkateswara Temple</div>
+                        <img src="https://media1.thrillophilia.com/filestore/ialevbmho0ubukzzu107bid6uxw6_1581171810_1466486823_Venkateshwara_Tirupati_Temple.jpg.jpg.jpg" alt="venkateswara temple" height="400" width="400">
+                        </div>
+                        <div class="place-info">
+                            <li>Sri Govindarajaswami Temple</li>
+                            <div class="image-overlay">Sri Govindarajaswami Temple</div>
+                        <img src="https://blog.aertrip.com/wp-content/uploads/2022/09/tirupati-Sri-Govindarajaswami-Temple.jpg" alt="govindarajaswami temple" height="400" width="400">
+                        </div>
+                        <div class="place-info">    
+                        <li>Talakona Waterfalls</li>
+                        <div class="image-overlay">Talakona Waterfalls</div>
+                        <img src="https://upload.wikimedia.org/wikipedia/commons/7/77/Talakona_Waterfalls_near_Tirupati_India.jpg" alt="talakona waterfalls" height="400" width="400">
+                        </div>
+                         <div class="place-info">    
+                        <li>Chandragiri Fort</li>
+                        <div class="image-overlay">Chandragiri Fort</div>
+                        <img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcRXLu_oPm2My77UqMLjX4avlruteNtxjp9NVA&s" ,alt="Chandragiri Fort" height="400" width="400">
+                        </div>
+                         <div class="place-info">    
+                        <li>silathoranam</li>
+                        <div class="image-overlay">silathoranam</div>
+                        <img src="https://www.holidify.com/images/cmsuploads/compressed/shutterstock_1525421399_20200130183215_20200130183321.png", alt="silathoranam" height="400" width="400">
+                        </div>
+                        </div>
+                        </div>
+                        <main>
+        <section class="itinerary">
+            <h2>Tirupathi Itinerary</h2>
+            <ul>
+                <li>Day 1: Arrival in Tirupathi and visit Sri Venkateswara Temple</li>
+                <li>Day 2: Explore Tirumala and other nearby temples</li>
+                <li>Day 3: Visit Chandragiri Fort and Silathoranam</li>
+                <li>Day 4: Relaxation day or optional local sightseeing</li>
+                <li>Day 5: Departure from Tirupathi</li>
+            </ul>
+        </section>
+    </main>
+                    `;
+                    break;
+                 case 'India gate':
+                    details = `
+                        <h2>INDIA GATE</h2>
+                        <p>India Gate is a war memorial located in New Delhi, commemorating the Indian soldiers who died in World War I and the Third Anglo-Afghan War.</p>
+                        <h3>Places to visit near India Gate:</h3>
+                        <div class="place-details">
+                           <div class="place-info">
+                            <li>India Gate Memorial</li>
+                            <div class="image-overlay">India Gate Memorial</div>
+                        <img src="https://assets.architecturaldigest.in/photos/62f650e316c88215b7e80d52/16:9/w_2560%2Cc_limit/PICTURES%2520NWM13.png" alt="india gate memorial" height="400" width="400">
+                        </div>
+                        <div class="place-info">  
+                        <li>Rajpath</li>
+                        <div class="image-overlay">Rajpath</div>
+                        <img src="https://media.istockphoto.com/id/472225853/photo/india-gate-new-delhi.jpg?s=612x612&w=0&k=20&c=YR9FnB85YL0EcuNIw0Ezzqu0pkGnz79XuKNHn2R-msE=" alt="rajpath" height="400" width="400">
+                        </div>
+                        <div class="place-info">    
+                        <li>Parliament House</li>
+                        <div class="image-overlay">Parliament House</div>
+                        <img src="https://images.moneycontrol.com/static-mcnews/2020/12/New-Parliament-Building-770x433.jpg?impolicy=website&width=770&height=431" alt="parliament house" height="400" width="400">
+</div>
+                        <div class="place-info">    
+                        <li>Rashtrapathi Bhavan</li>
+                        <div class="image-overlay">Rashtrapathi Bhavan</div>
+                        <img src="https://visit.rashtrapatibhavan.gov.in/public/uploads/primary_experience/front/64ccaf2d33303_1centrallawn.jpeg" alt="Rashtrapathi Bhavan" height="400" width="400">
+                            <!-- Add more places to visit near India Gate -->
+                        </div>
+                        </div>
+                        </div>
+                        <main>
+                            <section class="itinerary">
+            <h2>India Gate Itinerary</h2>
+            <ul>
+                <li>Day 1: Arrival in Delhi and visit India Gate</li>
+                <li>Day 2: Explore Rajpath and nearby attractions</li>
+                <li>Day 3: Visit Rashtrapati Bhavan and Parliament House</li>
+                <li>Day 4: Discover nearby markets and street food</li>
+                <li>Day 5: Departure from Delhi</li>
+            </ul>
+        </section>
+    </main>
+                    `;
+                    break;
+                case 'Shaniwar wada':
+                    details = `
+                        <h2>SHANIWAR WADA</h2>
+                        <p>Shaniwar Wada is a historical fortification in Pune, built in the 18th century by the Peshwas of the Maratha Empire.</p>
+                        <h3>Places to visit near Shaniwar Wada:</h3>
+                        <div class="place-details">
+                           <div class="place-info">
+                            <li>Shaniwar Wada Fort</li>
+                            <div class="image-overlay">Shaniwar Wada Fort</div>
+                        <img src="https://imgmedia.lbb.in/media/2019/02/5c5d4349abbc436444bcf3d4_1549615945775.jpg" alt="shaniwar wada fort" height="400" width="400">
+                        </div>
+                        <div class="place-info">    
+                        <li>Aga Khan Palace</li>
+                        <div class="image-overlay">Aga Khan Palace</div>
+                        <img src="https://yometro.com/images/places/aga-khan-palace.jpg" alt="aga khan palace" height="400" width="400">
+                        </div>
+                        <div class="place-info">    
+                        <li>Sinhagad Fort</li>
+                        <div class="image-overlay">Sinhagad Fort</div>
+                        <img src="https://static.tnnbt.in/thumb/msid-97346606,thumbsize-164252,width-1280,height-720,resizemode-75/97346606.jpg" alt="sinhagad fort" height="400" width="400">
+                        </div>
+                        <div class="place-info">    
+                        <li>Raja Dinkar Kelkar Museum</li>
+                        <div class="image-overlay">Raja Dinkar Kelkar Museum</div>
+                        <img src="https://imgstaticcontent.lbb.in/lbbnew/wp-content/uploads/2017/09/03095457/02102017_RajaDinkarKelkarMuseum_03.jpg" alt="Raja Dinkar Kelkar Museum" height="400" width="400">
+                           
+                        </div>
+                        </div>
+                        <main>
+        <section class="itinerary">
+            <h2>Shaniwar Wada Itinerary</h2>
+            <ul>
+                <li>Day 1: Arrival in Pune and visit Shaniwar Wada</li>
+                <li>Day 2: Explore nearby attractions and historical sites</li>
+                <li>Day 3: Visit Aga Khan Palace and Raja Dinkar Kelkar Museum</li>
+                <li>Day 4: Relaxation day or optional day trip to nearby hill stations</li>
+                <li>Day 5: Departure from Pune</li>
+            </ul>
+        </section>
+    </main>
+                    `;
+                    break;
+                    case 'Varnasi':
+                    details = `
+                        <h2>VARNASI</h2>
+                        <p>Varanasi is one of the oldest continuously inhabited cities in the world, known for its ghats along the Ganges river and its spiritual significance in Hinduism.</p>
+                        <h3>Places to visit in Varanasi:</h3>
+                        <div class="place-details">
+                           <div class="place-info">
+                            <li>Kashi Vishwanath Temple</li>
+                            <div class="image-overlay">Kashi Vishwanath Temple</div>
+                        <img src="https://d3k1i85mml78tf.cloudfront.net/Blogs/1658946850086_post_image_1.jpg" alt="Kashi Vishwanath Temple" height="400" width="400">
+                        </div>
+                        <div class="place-info">
+                        <li>Manikarnika Ghat</li>
+                        <div class="image-overlay">Manikarnika Ghat</div>
+                        <img src="https://media.tacdn.com/media/attractions-splice-spp-674x446/0b/39/96/3d.jpg" alt="Manikarnika Ghat" height="400" width="400">
+                        </div>
+                        <div class="place-info">    
+                        <li>Assi Ghat</li>
+                        <div class="image-overlay">Assi Ghat</div>
+                        <img src="https://i.pinimg.com/736x/3c/ab/cb/3cabcbe34d273f31c25b07bbc67cefd2.jpg" alt="Assi Ghat" height="400" width="400">
+                        </div>
+                        <div class="place-info">    
+                        <li>Ganga Aarti</li>
+                        <div class="image-overlay">Ganga Aarti</div>
+                        <img src="https://navbharattimes.indiatimes.com/thumb/92534190/ganga-aarti-places-in-india-where-your-mind-will-feel-peace-92534190.jpg?imgsize=94286&width=1200&height=900&resizemode=75" alt="Ganga Aarti" height="400" width="400">
+                        </div>
+                        <div class="place-info">    
+                        <li>Sarnath</li>
+                        <div class="image-overlay">Sarnath</div>
+                        <img src="https://cdn.getyourguide.com/img/tour/64818eab0a871.jpeg/99.jpg" alt="Sarnath" height="400" width="400">
+                        </div>
+                        </div>
+                        <main>
+        <section class="itinerary">
+            <h2>Varanasi Itinerary</h2>
+            <ul>
+                <li>Day 1: Arrival in Varanasi and visit Ganga Ghats</li>
+                <li>Day 2: Explore Varanasi temples and attend Ganga Aarti</li>
+                <li>Day 3: Take a boat ride on the Ganges and visit Sarnath</li>
+                <li>Day 4: Explore local markets and silk weaving centers</li>
+                <li>Day 5: Departure from Varanasi</li>
+            </ul>
+        </section>
+    </main>
+                    `;
+                    break;
+                    case 'ooty':
+                    details = `
+                        <h2>OOTY</h2>
+                        <p>Ooty, also known as Udhagamandalam, is a hill station in the Nilgiri Hills of Tamil Nadu, known for its pleasant weather and scenic beauty.</p>
+                        <h3>Places to visit in Ooty:</h3>
+                        <div class="place-details">
+                           <div class="place-info">
+                            <li>Ooty Lake</li>
+                            <div class="image-overlay">Ooty Lake</div>
+                            <img src="https://www.fabhotels.com/blog/wp-content/uploads/2018/10/1000x650-54.jpg" alt="Ooty Lake" height="400" width="400">
+                        </div>
+                         <div class="place-info">    
+                        <li>Rose Garden</li>
+                        <div class="image-overlay">Rose Garden</div>
+                        <img src="https://i.pinimg.com/originals/fc/1a/dc/fc1adc32732d30a0987b27ee5c5eec69.jpg" alt="Rose Garden" height="400" width="400">
+                        </div>    
+                        <div class="place-info">  
+                        <li>Tea Museum</li>
+                        <div class="image-overlay">Tea Museum</div>
+                        <img src="https://media-cdn.tripadvisor.com/media/photo-s/1a/4e/f8/e3/tea-leaves-processing.jpg" alt="Tea Museum" height="400" width="400">
+                         
+                        </div>
+                        <div class="place-info">  
+                        <li>Nilgiri Mountain Railway</li>
+                        <div class="image-overlay">Nilgiri Mountain Railway</div>
+                        <img src="https://i.natgeofe.com/n/35180c6a-8bc2-4b84-bc1e-d700b7222e24/G151NK_16x9.jpg" alt="Nilgiri Mountain Railway" height="400" width="400">
+                         
+                        </div>
+                        </div>
+                        <main>
+        <section class="itinerary">
+            <h2>Ooty Itinerary</h2>
+            <ul>
+                <li>Day 1: Arrival in Ooty and explore Botanical Gardens</li>
+                <li>Day 2: Visit Ooty Lake and Doddabetta Peak</li>
+                <li>Day 3: Take a ride on the Nilgiri Mountain Railway</li>
+                <li>Day 4: Explore Tea Museum and local markets</li>
+                <li>Day 5: Departure from Ooty</li>
+            </ul>
+        </section>
+    </main>
+                    `;
+                    break;
+                    case 'manali':
+                    details = `
+                        <h2>MANALI</h2>
+                        <p>Manali is a resort town nestled in the mountains of the Indian state of Himachal Pradesh, known for its adventure sports and scenic beauty.</p>
+                        <h3>Places to visit in Manali:</h3>
+                        <div class="place-details">
+                           <div class="place-info">
+                            <li>Hadimba Temple</li>
+                            <div class="image-overlay">Hadimba Temple</div>
+                        <img src="https://www.sushanttravels.com/uploads/Hadimba_Devi_Temple_2.jpg" alt="Hadimba Temple" height="400" width="400">
+                        </div>
+                        <div class="place-info">
+                        <li>Solang Valley</li>
+                        <div class="image-overlay">Solang Valley</div>
+                        <img src="https://content3.jdmagicbox.com/comp/manali/y4/9999p1901.1901.141219163420.t6y4/catalogue/solang-valley-manali-kullu-manali-tourist-attraction-eim1tei22c.jpg" alt="Solang Valley" height="400" width="400">
+                        </div>
+                        <div class="place-info">    
+                        <li>Old Manali</li>
+                        <div class="image-overlay">Old Manali</div>
+                        <img src="https://media1.thrillophilia.com/filestore/9x6dej7caqosc132iet35vvezj5r_Kullu-tour-packages-delhi-etaxigo.jpg" alt="Old Manali" height="400" width="400">
+                            <!-- Add more places to visit in Manali -->
+                        </div>
+                        <div class="place-info">    
+                        <li>Rotang Pass</li>
+                        <div class="image-overlay">Rotang Pass</div>
+                        <img src="https://www.india.com/wp-content/uploads/2014/09/Rohtang-Pass.jpg" alt="Rotang Pass" height="400" width="400">
+                            <!-- Add more places to visit in Manali -->
+                        </div>
+                        <div class="place-info">    
+                        <li>Vashist Hot Springs</li>
+                        <div class="image-overlay">Vashist Hot Springs</div>
+                        <img src="https://www.picnicwale.com/attractions/assets/sightseeing/price-for-vashisht-hot-water-springs-in-manali.jpg" alt="Vashist Hot Springs" height="400" width="400">
+                            <!-- Add more places to visit in Manali -->
+                        </div>
+                        </div>
+                        <main>
+        <section class="itinerary">
+            <h2>Manali Itinerary</h2>
+            <ul>
+                <li>Day 1: Arrival in Manali and explore Hadimba Temple</li>
+                <li>Day 2: Visit Solang Valley for adventure activities</li>
+                <li>Day 3: Explore Rohtang Pass and enjoy snow activities</li>
+                <li>Day 4: Visit Old Manali and Vashisht Hot Springs</li>
+                <li>Day 5: Departure from Manali</li>
+            </ul>
+        </section>
+    </main>
+                    `;
+                    break;
+                case 'Golden temple':
+                    details = `
+                        <h2>GOLDEN TEMPLE</h2>
+                        <p>The Golden Temple, also known as Sri Harmandir Sahib, is a Sikh gurdwara located in Amritsar, Punjab, known for its stunning architecture and spiritual significance.</p>
+                        <h3>Places to visit near Golden Temple:</h3>
+                        <div class="place-details">
+                           <div class="place-info">
+                            <li>Golden Temple Complex</li>
+                            <div class="image-overlay">Golden Temple Complex</div>
+                        <img src="https://www.thestatesman.com/wp-content/uploads/2017/08/1483260841-golden-temple--getty.jpg" alt="Golden Temple Complex" height="400" width="400">
+                        </div>
+                        <div class="place-info">
+                        <li>Jallianwala Bagh</li>
+                        <div class="image-overlay">Jallianwala Bagh</div>
+                        <img src="https://sc0.blr1.cdn.digitaloceanspaces.com/article/112822-urvboxnjca-1549952834.jpg" alt="Jallianwala Bagh" height="400" width="400">
+                        </div>
+                        <div class="place-info">    
+                        <li>Akal Takht</li>
+                        <div class="image-overlay">Akal Takht</div>
+                        <img src="https://cdn.britannica.com/20/124420-050-03955034/Akal-Takht-Amritsar-seat-Sikhism-India-Punjab.jpg" alt="Akal Takht" height="400" width="400">
+                       
+                        </div>
+                        <div class="place-info">    
+                        <li>Maharaja Ranjit Museum</li>
+                        <div class="image-overlay">Maharaja Ranjit Museum</div>
+                        <img src="https://amritsardekho.com/wp-content/uploads/2018/02/maharaja-ranjit-singh.png" alt="Maharaja Ranjit Museum" height="400" width="400">
+                           
+                        </div>
+                        <div class="place-info">    
+                        <li>Wagah Border</li>
+                        <div class="image-overlay">Wagah Border</div>
+                        <img src="https://travelsetu.com/apps/uploads/new_destinations_photos/destination/2024/01/08/53aa26952b73634ccccbb6e7c2882129_1000x1000.jpg" alt="Wagah Border" height="400" width="400">
+                           
+                        </div>
+                        </div>
+                        <main>
+        <section class="itinerary">
+            <h2>Golden Temple Itinerary</h2>
+            <ul>
+                <li>Day 1: Arrival in Amritsar and visit Golden Temple</li>
+                <li>Day 2: Explore Jallianwala Bagh and Wagah Border</li>
+                <li>Day 3: Visit Akal Takht and Maharaja Ranjit Singh Museum</li>
+                <li>Day 4: Explore local markets and indulge in Amritsari cuisine</li>
+                <li>Day 5: Departure from Amritsar</li>
+            </ul>
+        </section>
+    </main>
+                    `;
+                    break;
+                default:
+                    details = `<p>No details available for ${place}</p>`;
+            }
+
+            document.getElementById('place-details').innerHTML = details;
+        };
+    </script>
+</body>
+</html>

@@ -1,0 +1,169 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Travel Planner</title>
+ <style>
+/* Reset default margin and padding */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    font-family: Arial, sans-serif;
+    line-height: 1.6;
+    background-color: #f8f8f8;
+}
+
+main {
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 20px;
+}
+
+.destination {
+    margin-top: 20px;
+}
+
+.destination h2 {
+    text-align: center;
+    font-size: 2rem;
+    margin-bottom: 20px;
+}
+
+.trip {
+    margin-bottom: 40px;
+}
+
+.trip h3 {
+    font-size: 1.5rem;
+    margin-bottom: 10px;
+}
+
+.trip p {
+    font-size: 1rem;
+    margin-bottom: 20px;
+}
+
+.trip img {
+    display: block;
+    margin: 0 auto 20px; /* Added margin at the bottom */
+    border-radius: 5px;
+}
+
+button {
+    display: block;
+    margin: 0 auto;
+    padding: 10px 20px;
+    font-size: 1rem;
+    background-color: #ffc107;
+    color: #333;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+}
+
+button:hover {
+    background-color: #ff9800;
+}
+
+/* Responsive styles */
+@media screen and (min-width: 768px) {
+    .trip {
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+    }
+
+    .trip img {
+        width: 45%;
+        max-width: 400px;
+        height: auto;
+    }
+
+    .trip h3,
+    .trip p,
+    .trip button {
+        width: 45%;
+    }
+}
+
+
+</style>
+</head>
+<body>
+    <main>
+        <section class="destination">
+            <h2>Destinations</h2>
+<button onclick="openBookingDetails()">Booking Details</button>
+            <div class="trip">
+                <h3>GOA</h3>
+                <p>Goa is a state in western India with coastlines stretching along the Arabian Sea.</p>
+                <img src="https://static.india.com/wp-content/uploads/2024/01/goa-1200.jpg" alt="goa" height="300" width="400"><br><br>
+                <button onclick="explore('Goa')">Explore</button>
+            </div>
+            <div class="trip">
+                <h3>TAJ MAHAL</h3>
+                <p>The Taj Mahal is an ivory-white marble mausoleum on the south bank of the Yamuna river in the Indian city of Agra.</p>
+                <img src="https://upload.wikimedia.org/wikipedia/commons/thumb/1/1d/Taj_Mahal_%28Edited%29.jpeg/1200px-Taj_Mahal_%28Edited%29.jpeg" alt="tajmahal" height="300" width="400"><br><br>
+                <button onclick="explore('Taj Mahal')">Explore</button>
+
+            </div>
+            <div class="trip">
+                <h3>TIRUPATHI</h3>
+                <p>Tirupati is known as the abode of the Hindu god Venkateshvara, Lord of Seven Hills.</p>
+                <img src= "https://upload.wikimedia.org/wikipedia/commons/thumb/4/4e/Tirumala_090615.jpg/800px-Tirumala_090615.jpg" alt="tirupathi" height="300" width="400"><br><br>
+<button onclick="explore('Tirupathi')">Explore</button>
+</div>
+<div class="trip">
+                <h3>INDIA GATE</h3>
+                <p>India Gate is one of many British monuments built by order of the Imperial War Graves Commission (later renamed Commonwealth War Graves Commission).</p>
+                <img src="https://upload.wikimedia.org/wikipedia/commons/0/09/India_Gate_in_New_Delhi_03-2016.jpg" alt="india gate" height="300" width="400"><br><br>
+<button onclick="explore('India gate')">Explore</button>
+</div>
+<div class="trip">
+                <h3>SHANIWAR WADA</h3>
+                <p>Shaniwar Wada is a historical fortification in the city of Pune, India. </p>
+                <img src="https://upload.wikimedia.org/wikipedia/commons/d/d1/Shaniwar_wada_%28pune%29.jpg" alt="Shaniwar wada" height="300" width="400"><br><br>
+<button onclick="explore('Shaniwar wada')">Explore</button>
+</div>
+<div class="trip">
+                <h3>VARNASI</h3>
+                <p>The land of Varanasi (Kashi) has been the ultimate pilgrimage spot for Hindus for ages. </p>
+                 <img src= "https://static.toiimg.com/img/100273065/Master.jpg" alt="varanasi" height="300" width="400"><br><br>
+<button onclick="explore('Varnasi')">Explore</button>
+</div>
+<div class="trip">
+                <h3>OOTY</h3>
+                <p>Ooty is a gorgeous hill station in Tamil Nadu, and is considered a haven for nature lovers from all the country.</p>
+                <img src="https://www.tamilnadutourism.tn.gov.in/img/pages/large-desktop/avalanche-hills-ooty-1656333416_e2680b8680086972e69d.webp" alt="ooty" height="300" width="400" ><br><br>
+<button onclick="explore('ooty')">Explore</button>
+</div>
+<div class="trip">
+                <h3>MANALI</h3>
+                <p>Manali is synonymous streams and birdsong, forests and orchards and grandees of snow-capped mountains. </p>
+                <img src="https://upload.wikimedia.org/wikipedia/commons/thumb/0/03/Manali_City.jpg/1200px-Manali_City.jpg" alt="manali" height="300" width="400"><br><br>
+<button onclick="explore('manali')">Explore</button>
+</div>
+<div class="trip">
+                <h3>GOLDEN TEMPLE</h3>
+                <p>The Golden temple is famous for its full golden dome, it is one of the most sacred pilgrim spots for Sikhs.</p>
+                <img src="https://upload.wikimedia.org/wikipedia/commons/thumb/9/94/The_Golden_Temple_of_Amrithsar_7.jpg/1200px-The_Golden_Temple_of_Amrithsar_7.jpg" alt="golden temple" height="300" width="400"><br><br>
+<button onclick="explore('Golden temple')">Explore</button>
+</div>
+        </section>
+    </main>
+    <script>
+function openBookingDetails() {
+            window.location.href = 'booking_details.html';
+        }
+
+        function explore(place) {
+            window.location.href = 'details1.html?place=' + encodeURIComponent(place);
+        }
+    </script>
+</body>
+</html>

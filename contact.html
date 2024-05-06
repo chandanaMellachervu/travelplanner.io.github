@@ -1,0 +1,419 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <title>Tourify</title>
+    <style>
+        /* Reset CSS */
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        /* Global styles */
+        body {
+            font-family: Arial, sans-serif;
+            line-height: 1.6;
+            background-color: #f8f8f8;
+        }
+
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 0 15px;
+        }
+
+        .flex {
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+        }
+
+        /* Navbar */
+        .navbar {
+            background-color: #333;
+            color: #fff;
+            padding: 20px 0;
+        }
+
+        .site-brand {
+            font-size: 24px;
+            font-weight: bold;
+            text-decoration: none;
+            color: #fff;
+        }
+
+        .site-brand span {
+            color: #ffd700; /* Gold color for emphasis */
+        }
+
+        .navbar-nav {
+            list-style: none;
+        }
+
+        .nav-item {
+            margin-right: 20px;
+        }
+
+        .nav-link {
+            text-decoration: none;
+            color: #fff;
+            transition: color 0.3s ease;
+        }
+
+        .nav-link:hover {
+            color: #ffd700; /* Change color on hover */
+        }
+
+        /* Header */
+        .header-title {
+            text-align: center;
+            margin-bottom: 50px;
+        }
+
+        .header-title h1 {
+            font-size: 36px;
+            margin-bottom: 15px;
+        }
+
+        .header-title p {
+            font-size: 18px;
+            color: #666; /* Dark gray color for text */
+        }
+
+        /* Contact section */
+        #contact {
+            background-color: #fff;
+            padding: 50px 0;
+        }
+
+        .title-wrap {
+            text-align: center;
+            margin-bottom: 50px;
+        }
+
+        .sm-title {
+            font-size: 18px;
+            color: #333;
+        }
+
+        .lg-title {
+            font-size: 36px;
+            margin-top: 10px;
+            color: #333;
+        }
+
+        .contact-row {
+            display: flex;
+            flex-wrap: wrap;
+            justify-content: space-between;
+        }
+
+        .contact-left {
+            flex: 1;
+            margin-right: 20px;
+        }
+
+        .contact-form {
+            display: flex;
+            flex-direction: column;
+        }
+
+        .form-control {
+            margin-bottom: 20px;
+            padding: 10px;
+            border: 1px solid #ccc;
+            border-radius: 5px;
+        }
+
+        textarea {
+            resize: none;
+        }
+
+        .btn {
+            padding: 10px 20px;
+            background-color: #333;
+            color: #fff;
+            border: none;
+            border-radius: 5px;
+            cursor: pointer;
+            transition: background-color 0.3s ease;
+        }
+
+        .btn:hover {
+            background-color: #ffd700; /* Change background color on hover */
+        }
+
+        .contact-right {
+            flex: 1;
+            margin-left: 20px;
+        }
+
+        .contact-item {
+            display: flex;
+            margin-bottom: 20px;
+        }
+
+        .contact-icon {
+            margin-right: 10px;
+            font-size: 24px;
+            color: #333;
+        }
+
+        .contact-icon i {
+            color: #ffd700; /* Gold color for icons */
+        }
+
+        .contact-item div {
+            flex: 1;
+        }
+
+        .contact-item span {
+            font-weight: bold;
+            color: #333;
+        }
+
+        .contact-item .text {
+            color: #666;
+        }
+
+        /* Footer */
+        footer {
+            background-color: #333;
+            color: #fff;
+            padding: 50px 0;
+        }
+
+        .footer-row {
+            display: flex;
+            flex-wrap: wrap;
+            justify-content: space-between;
+        }
+
+        .footer-item {
+            flex: 1;
+            margin-bottom: 30px;
+        }
+
+        .footer-item h2 {
+            margin-bottom: 20px;
+            font-size: 20px;
+            color: #ffd700; /* Gold color for footer headings */
+        }
+
+        .footer-item p {
+            color: #ccc;
+        }
+
+        .social-links {
+            list-style: none;
+            padding: 0;
+            display: flex;
+        }
+
+        .social-links li {
+            margin-right: 10px;
+        }
+
+        .social-links a {
+            color: #fff;
+            font-size: 24px;
+            text-decoration: none;
+            transition: color 0.3s ease;
+        }
+
+        .social-links a:hover {
+            color: #ffd700; /* Change color on hover */
+        }
+
+        /* Responsive */
+        @media (max-width: 768px) {
+            .flex {
+                flex-direction: column;
+                align-items: flex-start;
+            }
+            .nav-item {
+                margin: 10px 0;
+            }
+            .contact-row {
+                flex-direction: column;
+            }
+            .contact-left,
+            .contact-right {
+                margin: 0;
+            }
+        }
+    </style>
+</head>
+<body>
+    <!-- navbar  -->
+    <nav class="navbar">
+        <div class="container flex">
+            <a href="index.html" class="site-brand">
+                Tour<span>ify</span>
+            </a>
+
+            <button type="button" id="navbar-show-btn" class="flex">
+                <i class="fas fa-bars"></i>
+            </button>
+            <div id="navbar-collapse">
+                <button type="button" id="navbar-close-btn" class="flex">
+                    <i class="fas fa-times"></i>
+                </button>
+                <ul class="navbar-nav">
+                    <li class="nav-item">
+                        <a href="index.html" class="nav-link">Home</a>
+                    </li>
+                    <li class="nav-item">
+                        <a href="gallery.html" class="nav-link">Gallery</a>
+                    </li>
+                    <li class="nav-item">
+                        <a href="blog.html" class="nav-link">Blog</a>
+                    </li>
+                    <li class="nav-item">
+                        <a href="about.html" class="nav-link">About</a>
+                    </li>
+                    <li class="nav-item">
+                        <a href="contact.html" class="nav-link">Contact</a>
+                    </li>
+                </ul>
+            </div>
+        </div>
+    </nav>
+    <!-- end of navbar  -->
+
+    <!-- header -->
+    <header class="flex header-sm">
+        <div class="container">
+            <div class="header-title">
+                <h1>Contact</h1>
+                <p>Have a question, comment, or suggestion? We'd love to hear from you! Fill out the form below, and we'll get back to you as soon as possible.</p>
+            </div>
+        </div>
+    </header>
+    <!-- header -->
+
+    <!-- contact section -->
+    <section id="contact" class="py-4">
+        <div class="container">
+            <div class="title-wrap">
+                <span class="sm-title">Get in touch with us</span>
+                <h2 class="lg-title">Contact us</h2>
+            </div>
+
+            <div class="contact-row">
+                <div class="contact-left">
+                    <form class="contact-form">
+                        <input type="text" class="form-control" placeholder="Your name">
+                        <input type="email" class="form-control" placeholder="Your email">
+                        <textarea rows="4" class="form-control" placeholder="Your message" style="resize: none;"></textarea>
+                        <input type="submit" class="btn" value="Send message">
+                    </form>
+                </div>
+                <div class="contact-right my-2">
+                    <div class="contact-item">
+                        <span class="contact-icon flex">
+                            <i class="fa fa-phone-alt"></i>
+                        </span>
+                        <div>
+                            <span>Phone</span>
+                            <p class="text">+01-584-886-009</p>
+                        </div>
+                    </div>
+                    <div class="contact-item">
+                        <span class="contact-icon flex">
+                            <i class="fa fa-map-marked-alt"></i>
+                        </span>
+                        <div>
+                            <span>Address</span>
+                            <p class="text">102 East 22nd Street, NY</p>
+                        </div>
+                    </div>
+                    <div class="contact-item">
+                        <span class="contact-icon flex">
+                            <i class="fa fa-envelope"></i>
+                        </span>
+                        <div>
+                            <span>Email</span>
+                            <p class="text">info@tourify.com</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+    <!-- end of contact section -->
+
+    <!-- footer -->
+    <footer class="py-4">
+        <div class="container footer-row">
+            <div class="footer-item">
+                <a href="index.html" class="site-brand">
+                    Tour<span>ify</span>
+                </a>
+                <p class="text">Experience the tranquility of serene landscapes, where every moment is an invitation to embrace nature's beauty and find inner peace.</p>
+
+            </div>
+
+            <div class="footer-item">
+                <h2>Follow us on: </h2>
+                <ul class="social-links">
+                    <li>
+                        <a href="#">
+                            <i class="fab fa-facebook-f"></i>
+                        </a>
+                    </li>
+                    <li>
+                        <a href="#">
+                            <i class="fab fa-instagram"></i>
+                        </a>
+                    </li>
+                    <li>
+                        <a href="#">
+                            <i class="fab fa-twitter"></i>
+                        </a>
+                    </li>
+                    <li>
+                        <a href="#">
+                            <i class="fab fa-pinterest"></i>
+                        </a>
+                    </li>
+                    <li>
+                        <a href="#">
+                            <i class="fab fa-google-plus"></i>
+                        </a>
+                    </li>
+                </ul>
+            </div>
+
+            <div class="footer-item">
+                <h2>Popular Places:</h2>
+                <ul>
+                    <li><a href="#">Thailand</a></li>
+                    <li><a href="#">Australia</a></li>
+                    <li><a href="#">Maldives</a></li>
+                    <li><a href="#">Switzerland</a></li>
+                    <li><a href="#">Germany</a></li>
+                </ul>
+            </div>
+
+            <div class="subscribe-form footer-item">
+                <h2>Subscribe to Newsletter!</h2>
+                <form class="flex">
+                    <input type="email" placeholder="Enter Email" class="form-control">
+                    <input type="submit" class="btn" value="Subscribe">
+                </form>
+            </div>
+        </div>
+    </footer>
+    <!-- end of footer -->
+
+    <!-- js -->
+    <script src="js/script.js"></script>
+    <script>
+        // Add JavaScript here if needed
+    </script>
+</body>
+</html>
